@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Bass Neck Trainer</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id="root">
+      <h3>Train dat neck</h3>
+      <div id="form">
+        <form>
+          <p>Select exercise criteria: </p>
+          <div class="form-row">
+            <input type="checkbox" id="e_string" />
+              <label>E string</label>
+            <input type="checkbox" id="a_string" />
+              <label>A string</label>
+            <input type="checkbox" id="d_string" />
+              <label>D string</label>
+            <input type="checkbox" id="g_string" />
+              <label>G string</label>
+          </div>
+          <div class="form-row">
+            <input type="checkbox" id="extended_neck" />
+              <label>Extend past 12th fret</label>
+          </div>
+          <div class="form-row">
+            <input type="number" id="time_between_notes" min="1" max="5" step="1" value="1">
+              <label>second(s) between notes</label>
+          </div>
+        </form>
+        <div class="form-row">
+          <button type="button" onClick="beginExercise()">Begin Exercise</button>
+        </div>
+      </div>
+      <div id="exercise">
+        <div id="display">
+          <span id="note-name"></span>
+          <span id="dumb-text"> on the </span>
+          <span id="string-name"></span>
+        </div>
+        <div id="controls">
+          <button type="button" id="pause" onClick="pauseExercise()">Pause</button>
+          <button type="button" id="resume" onClick="startExercise()">Resume</button>
+      </div>
+    </div>
+    <script src="js/engine.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "bass-neck-trainer",
+  "version": "1.0.0",
+  "description": "tool for learning the notes on the bass neck",
+  "main": "app.js",
+  "dependencies": {
+    "http-hash-router": "^1.1.0",
+    "nodemon": "^1.8.1",
+    "st": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanielkornet/bass-neck-trainer.git"
+  },
+  "author": "Nathaniel S Kornet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathanielkornet/bass-neck-trainer/issues"
+  },
+  "homepage": "https://github.com/nathanielkornet/bass-neck-trainer#readme"
+}

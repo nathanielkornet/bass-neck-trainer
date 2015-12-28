@@ -1,0 +1,38 @@
+div {
+  font-size: 1em;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.form-row {
+  padding-bottom: 1em;
+}
+
+#exercise {
+  display: none;
+}
+
+#note-name {
+  font-size: 2em;
+}
+
+#dumb-text {
+  display: none;
+}
+
+#string-name {
+  font-size: 1.5em;
+}
+
+#controls {
+  padding: 1em;
+}
