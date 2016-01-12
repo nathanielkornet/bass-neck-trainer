@@ -7,7 +7,6 @@
   </head>
   <body>
     <div id="root">
-      <h3>Train dat neck</h3>
       <div id="form">
         <form>
           <p>Select exercise criteria: </p>
@@ -22,8 +21,10 @@
               <label>G string</label>
           </div>
           <div class="form-row">
-            <input type="checkbox" id="extended_neck" />
-              <label>Extend past 12th fret</label>
+            <label>Fret range:</label>
+            <input type="number" id="min_fret" min="0" max="22" step="1" value="0"/>
+            <label> to </label>
+            <input type="number" id="max_fret" min="0" max="22" step="1" value="12"/>
           </div>
           <div class="form-row">
             <input type="number" id="time_between_notes" min="1" max="5" step="1" value="1">
