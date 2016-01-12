@@ -11,10 +11,19 @@ html, body, #root {
   height: 100%;
   text-align: center;
   vertical-align: middle;
+  position: relative
 }
 
 .form-row {
   padding-bottom: 1em;
+}
+
+#form, #exercise {
+  height: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25%);
 }
 
 #exercise {

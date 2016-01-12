@@ -1,17 +1,12 @@
 "use strict"
 
 const notes = ['Ab','A','Bb','B','C','Db','D','Eb','E','F','F#','G']
-const extendedNotesByString = {
-  'E' : ['E','F','F#','G','Ab','A','Bb'],
-  'A' : ['A','Bb','B','C','Db','D','Eb'],
-  'D' : ['D','Eb','E','F','F#','G','Ab'],
-  'G' : ['G','Ab','A','Bb','B','C','Db']
-}
 
 let noteList = []
 let rate = 0
 let timeBetweenNotes = 0
 let interval
+let prevNote = 0
 
 function getCheckedStrings () {
   let strings = []
@@ -22,26 +17,30 @@ function getCheckedStrings () {
   return strings
 }
 
-function addString (string, extendNeck) {
-  for (var i = 0; i < notes.length; i++) {
-    noteList.push({ name: notes[i], string: string + ' string' })
+function addString (stringName, minFret, maxFret) {
+  let cursor = notes.indexOf(stringName) + minFret
+  if (cursor > notes.length) {
+    cursor = cursor % notes.length // yeah I used a mod, fuck you know???
   }
-  if (extendNeck) {
-    const extendedNotes = extendedNotesByString[string]
-    for (var i = 0; i < extendedNotes.length; i++) {
-      noteList.push({ name: 'high ' + extendedNotes[i], string: string + ' string' })
-    }
-  }
-}
 
-function initializeCount () {
-  for (var i = 0; i < noteList.length; i++) {
-    countList.push(0)
+  for (var i = minFret; i < maxFret + 1; i++) {
+    if (cursor === notes.length) { cursor = 0 }
+
+    noteList.push({
+      name: notes[cursor],
+      string: stringName + ' string'
+    })
+
+    cursor++
   }
 }
 
 function pickNote () {
-  let noteID = Math.floor(Math.random() * (noteList.length));
+  console.log('picking')
+  let noteID = prevNote
+  while (noteID === prevNote ){
+    noteID = Math.floor(Math.random() * (noteList.length));
+  }
 
   let note = noteList[noteID]
 
@@ -65,7 +64,8 @@ function pauseExercise () {
 }
 
 function beginExercise () {
-  let extendNeck = document.querySelector('#extended_neck').checked
+  let minFret = document.querySelector('#min_fret').value
+  let maxFret = document.querySelector('#max_fret').value
   timeBetweenNotes = document.querySelector('#time_between_notes').value * 1000
 
   // initialize string and note data
@@ -75,7 +75,7 @@ function beginExercise () {
     return
   }
   for (var i = 0; i < checkedStrings.length; i++) {
-    addString(checkedStrings[i], extendNeck)
+    addString(checkedStrings[i], Number(minFret), Number(maxFret))
   }
 
   document.querySelector('#form').style.display = 'none'
