@@ -26,8 +26,11 @@ function addString (stringName, minFret, maxFret) {
   for (var i = minFret; i < maxFret + 1; i++) {
     if (cursor === notes.length) { cursor = 0 }
 
+    let noteName = notes[cursor]
+    if (i > 11) { noteName = 'high ' + noteName }
+
     noteList.push({
-      name: notes[cursor],
+      name: noteName,
       string: stringName + ' string'
     })
 
@@ -36,7 +39,6 @@ function addString (stringName, minFret, maxFret) {
 }
 
 function pickNote () {
-  console.log('picking')
   let noteID = prevNote
   while (noteID === prevNote ){
     noteID = Math.floor(Math.random() * (noteList.length));
@@ -49,6 +51,8 @@ function pickNote () {
 
   // dumb quick fix to get that stupid text from showing up when it shouldn't
   document.querySelector('#dumb-text').style.display = 'inline'
+
+  prevNote = noteID
 }
 
 function startExercise () {
