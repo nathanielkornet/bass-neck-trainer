@@ -77,7 +77,6 @@ function beginExercise () {
   for (var i = 0; i < checkedStrings.length; i++) {
     addString(checkedStrings[i], Number(minFret), Number(maxFret))
   }
-  console.log(noteList)
 
   document.querySelector('#form').style.display = 'none'
   document.querySelector('#exercise').style.display = 'inline'
