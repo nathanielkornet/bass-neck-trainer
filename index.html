@@ -19,6 +19,8 @@
               <label>D string</label>
             <input type="checkbox" id="g_string" />
               <label>G string</label>
+              <input type="checkbox" id="c_string" />
+                <label>C string</label>
           </div>
           <div class="form-row">
             <label>Fret range:</label>
@@ -44,8 +46,9 @@
         <div id="controls">
           <button type="button" id="pause" onClick="pauseExercise()">Pause</button>
           <button type="button" id="resume" onClick="startExercise()">Resume</button>
+        </div>
+        <audio id="note-player" autoplay/>
       </div>
-    </div>
     <script src="js/engine.js"></script>
   </body>
 </html>
